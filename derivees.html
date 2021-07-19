@@ -1,0 +1,90 @@
+<?php
+include 'lien.php';
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Photos et vidéos - Blois Agglopolys Canoë Kayak</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Galerie de photos et de vidéos du club">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo_BACK.jpg"/>
+</head>
+<body>
+    <header id="bg-header4">
+        <!-- MENU-->
+        <nav class="menu">
+        <a class="logo-nav" href="index.php"><img src="img/logo_back.png" alt="logo"></a>
+            <ul>
+              <li>
+                  <a href="index.php">Accueil</a>
+              </li>
+              <li>
+                  <a href="activites.php">Activités</a>
+              </li>
+              <li>
+                  <a href="photos_videos.php">Photos / vidéos</a>
+              </li>
+              <li>
+                  <a href="contact.php">Nous localiser</a>
+              </li>
+            </ul>
+            <a class="btn-nav" href="connexion.html"><button class="btn">Espace adhérent</button></a>
+        </nav>
+
+            <!-- TEXTE ET LOGO HEADER-->
+            <div class="header-contenu">
+                <p>Découvrez les photos et vidéos du club !</p>
+            </div>
+            <div class="btn2">
+                <a  href="#bg-header4"><img src="img/fleche_haut.png" width="50px"></a>
+            </div>
+            <div class="middle">
+                <div class="mouse"></div>
+            </div>
+    </header>
+
+    <main>
+        <h1 class="main-contenu">Photos / vidéos</h1>
+        <h2>Notre galerie</h2>
+        <div class="contenu contenu-img">
+          <?php
+          $req = $mysqli->query('SELECT * FROM images_videos');
+          ?>
+          <?php while($res2 = $req->fetch_assoc()) : ?>
+            <div>
+                <img alt="?" src="<?php echo $res2['images']; ?>">
+                <span><?php echo $res2['date']; ?></span>
+                <p><?php echo $res2['text']; ?></p>
+              <!-- <iframe src="<?php// echo $res2['videos']; ?>" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> -->
+                       </div>
+          <?php endwhile;?>
+          <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fbloiskayak%2Fvideos%2F2857387694534124%2F&show_text=false&width=560" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+          <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fbloiskayak%2Fvideos%2F4893947750623049%2F&show_text=false&width=267" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+          <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fbloiskayak%2Fvideos%2F3027775850644393%2F&show_text=false&width=267" width="267" height="476" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+        </div>
+    </main>
+
+    <footer>
+    <div class="footer-contenu">
+            <div>
+                <a href="index.php"><img src="img/logo_back.png" alt="logo" height="50px"></a>
+                <p><i>Pagayer sur la Loire<br> c'est notre nature</i></p>
+            </div>
+            <p>Adresse : <br><br> Parc des Mées,<br> Levée des Tuileries prolongée <br> 41260 La Chaussée Saint-Victor</p>
+            <a href="mentions_legales.html"><p>Mentions légales<br></p></a>
+            <div>
+                <a target="_blank" href="https://www.ffck.org/"><p>Fédération française de canoë kayak</p><br></a>
+                <a target="_blank" href="https://www.blois.fr/"><p>Ville de Blois</p><br></a>
+                <a target="_blank" href="https://lachausseesaintvictor.fr/"><p>Ville de la Chaussée-Saint-Victor</p><br></a>
+            </div>
+            <div class="logo-footer">
+                <a target="_blank" href="https://www.facebook.com/bloiskayak/"><img alt="logo-footer" src="img/logofacebook.png" > </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
